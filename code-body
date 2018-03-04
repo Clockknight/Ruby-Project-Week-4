@@ -1,1 +1,34 @@
+=begin 
+Code can be tested here:
+https://repl.it/@Clockknight/MegaCorp-Pay
+It can also be downloaded as a zip on that same website
+=end
 
+temp = 0
+answer = 0
+choice = ""
+pay = [0,0,0,0]
+
+puts "Hello Officer. Welcome to the MegaCorp employee interface."
+puts "Our scans have indicated your system is outdated, and can currently only manage to examine up to 3 employees."
+puts "Please input the amount of employees that you need to manage.\n"
+
+while answer > 4 || answer < 2
+  answer = gets.chomp.to_i
+  if answer > 4 || answer < 2
+    puts "That is an invalid number. Please input a valid one."
+  end
+end
+
+choice = if answer == 4 then "four"          elsif answer == 2 then "two"          elsif answer == 3 then "three" end
+
+puts "You have chosen to manage " + choice.to_s + " employees."
+puts "The employees you will be managing are:"
+
+while temp < answer
+  puts "Employee No." + temp.to_s
+  temp += 1
+  
+  pay[temp] = (35 + rand(10))*35.35
+  puts pay[temp].to_s + "$"
+end
